@@ -1,8 +1,13 @@
 pipeline {
+
     agent any
 
     tools {
         maven 'MAVEN-HOME'
+    }
+
+    triggers {
+        githubPush()
     }
 
     stages {
