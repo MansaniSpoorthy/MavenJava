@@ -14,35 +14,33 @@ pipeline {
             }
         }
 
-        stage('Git Repo & Clean') {
+        stage('Clean') {
             steps {
-                deleteDir()
-                bat "git clone -b master https://github.com/MansaniSpoorthy/MavenJava.git mavenjava"
-                bat "mvn clean -f mavenjava"
+                bat "mvn clean"
             }
         }
 
         stage('Compile') {
             steps {
-                bat "mvn compile -f mavenjava"
+                bat "mvn compile"
             }
         }
 
         stage('Install') {
             steps {
-                bat "mvn install -f mavenjava"
+                bat "mvn install"
             }
         }
 
         stage('Test') {
             steps {
-                bat "mvn test -f mavenjava"
+                bat "mvn test"
             }
         }
 
         stage('Package') {
             steps {
-                bat "mvn package -f mavenjava"
+                bat "mvn package"
             }
         }
 
